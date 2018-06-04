@@ -30,14 +30,13 @@ int main() {
 
 	memset(mark, 0, n + 1);
 
-	int ii = 0;
 	char result = ' ';
 	int index = 0;
 	i = 0;
 	j = 0;
 	l = 0;
 
-	while (ii<n) {
+	while (0<n) {
 
 		while (i<n)
 		{
@@ -53,7 +52,6 @@ int main() {
 				else {
 					mark[index] = 1;
 					i++;
-					ii++;
 				}
 				break;
 			}
@@ -77,7 +75,6 @@ int main() {
 				else {
 					mark[index] = 1;
 					j++;
-					ii++;
 				}
 				break;
 			}
@@ -102,7 +99,6 @@ int main() {
 				else {
 					mark[index] = 1;
 					l++;
-					ii++;
 				}
 				break;
 			}
