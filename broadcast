@@ -1,0 +1,58 @@
+#include <cstdio>
+#include <cstring>
+#include <vector>
+
+using namespace std;
+
+int main() {
+
+	int n, m;
+	scanf("%d%d", &n, &m); // cin >> n >> m; 
+
+	char **g;
+	g = new char *[n + 1];
+
+	for (int i = 0; i <= n; i++) {
+		g[i] = new char[n + 1];
+		memset(g[i], '0', n + 1);
+	}
+
+	int a, b;
+	for (int i = 1; i <= m; i++) { //graph array
+		scanf("%d%d", &a, &b); //cin >> a >> b;
+		g[a][b] = '1';
+		g[b][a] = '1';
+	}
+
+	vector<int> v;
+
+	for (int i = 1; i <= n; i++) {
+		v.clear();
+		for (int j = i + 1; j <= n; j++) {
+			if (g[i][j] == '1') {
+				v.push_back(j);
+			}
+		}
+
+		int len = v.size();
+
+		if (len >= 2) {
+			for (int ii = 0; ii < len; ii++) {
+				for (int jj = ii + 1; jj < len; jj++) {
+					int indexa = v.at(ii);
+					int indexb = v.at(jj);
+					if (g[indexa][indexb] == '1') {
+						printf("%c%c\n", '-', '1'); //cout << "-1" << endl;
+						return 0;
+					}
+				}
+
+			}
+		}
+
+	}
+	printf("%c\n", '1'); //cout << '1' << endl;
+
+	return 0;
+}
+
